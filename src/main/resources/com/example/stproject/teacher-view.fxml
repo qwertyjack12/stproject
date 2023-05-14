@@ -1,14 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.stproject.TeacherView"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="308.0" style="-fx-background-color: #2E3348;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.stproject.TeacherController">
+    <children>
+        <AnchorPane layoutY="70.0" prefHeight="330.0" prefWidth="308.0" style="-fx-background-color: #FFFFFF;">
+            <children>
+                <Button fx:id="addTeacherButton" layoutX="14.0" layoutY="158.0" mnemonicParsing="false" text="Add teacher" />
+                <Button fx:id="showGroupsTeacherButton" layoutX="90.0" layoutY="124.0" mnemonicParsing="false" text="Show teacher groups" />
+                <Button fx:id="removeTeacherButton" layoutX="14.0" layoutY="196.0" mnemonicParsing="false" text="Remove teacher" />
+                <Button fx:id="addGroupTeacherButton" layoutX="226.0" layoutY="158.0" mnemonicParsing="false" text="Add group" />
+                <Button fx:id="addDisciplineTeacherButton" layoutX="209.0" layoutY="196.0" mnemonicParsing="false" text="Add discipline" />
+                <Button fx:id="showTeacherButton" layoutX="108.0" layoutY="89.0" mnemonicParsing="false" text="Show teachers" />
+            </children></AnchorPane>
+        <Label layoutX="93.0" layoutY="12.0" prefHeight="55.0" prefWidth="123.0" text="Teacher" textFill="WHITE">
+            <font>
+                <Font name="Nirmala UI Bold" size="33.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

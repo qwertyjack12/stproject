@@ -33,6 +33,10 @@ public abstract class User implements Serializable {
      */
     protected List<Discipline<?>> list;
 
+    public List<Discipline<?>> getList() {
+        return list;
+    }
+
     public int getId() {
         return id;
     }
