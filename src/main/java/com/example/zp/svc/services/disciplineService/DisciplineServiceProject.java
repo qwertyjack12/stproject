@@ -1,8 +1,8 @@
 package com.example.zp.svc.services.disciplineService;
 
+import com.example.zp.discipline.Discipline;
 import com.example.zp.svc.Deserializator;
 import com.example.zp.svc.Serializator;
-import com.example.zp.discipline.Discipline;
 
 import java.io.FileReader;
 import java.io.IOException;

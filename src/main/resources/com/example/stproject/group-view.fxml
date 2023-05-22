@@ -14,13 +14,12 @@
             <Button fx:id="removeGroupButton" layoutX="14.0" layoutY="196.0" mnemonicParsing="false" text="Remove group" />
             <Button fx:id="removeStudentsGroupButton" layoutX="188.0" layoutY="196.0" mnemonicParsing="false" text="Remove student" />
             <Button fx:id="addStudentGroupButton" layoutX="209.0" layoutY="158.0" mnemonicParsing="false" text="Add student" />
-            <Button fx:id="showRatingGroupButton" layoutX="114.0" layoutY="124.0" mnemonicParsing="false" text="Show rating" />
+            <Button fx:id="showStudentButton" layoutX="107.0" layoutY="124.0" mnemonicParsing="false" text="Show students" />
             </children></AnchorPane>
         <Label layoutX="105.0" layoutY="12.0" prefHeight="55.0" prefWidth="99.0" text="Group" textFill="WHITE">
             <font>
                 <Font name="Nirmala UI Bold" size="33.0" />
             </font>
         </Label>
-        <Button fx:id="exitGroupButton" layoutX="259.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #FFF0F5;" text="Exit" textAlignment="CENTER" />
     </children>
 </AnchorPane>
