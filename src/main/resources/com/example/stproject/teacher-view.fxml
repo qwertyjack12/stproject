@@ -21,6 +21,5 @@
                 <Font name="Nirmala UI Bold" size="33.0" />
             </font>
         </Label>
-        <Button fx:id="exitTeacherButton" layoutX="259.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: #FFF0F5;" text="Exit" textAlignment="CENTER" />
     </children>
 </AnchorPane>
