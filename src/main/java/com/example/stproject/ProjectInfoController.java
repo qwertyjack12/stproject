@@ -45,7 +45,9 @@ public class ProjectInfoController {
             String gradesContent = StudentServiceProject.getStudent(id).getStudentGrades();
             String nameContent = StudentServiceProject.getStudent(id).getName();
             String ratingContent = String.valueOf(StudentServiceProject.getStudent(id).getRating());
-            stringBuilder.append("Name of student: ");
+            stringBuilder.append("Record book number: ");
+            stringBuilder.append(id);
+            stringBuilder.append("\nName of student: ");
             stringBuilder.append(nameContent);
             stringBuilder.append("\nGrades of student:\n");
             stringBuilder.append(gradesContent);
