@@ -1,6 +1,7 @@
-package com.example.stproject;
+package com.example.stproject.teacherControllers;
 
-import com.example.zp.svc.services.groupService.GroupServiceProject;
+import com.example.stproject.HelloController;
+import com.example.zp.svc.services.teacherService.TeacherServiceProject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,37 +14,31 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GroupController {
+public class TeacherController {
     @FXML
     private ResourceBundle resources;
-
     @FXML
     private URL location;
-
     @FXML
-    private Button addGroupButton;
-
+    private Button addDisciplineTeacherButton;
     @FXML
-    private Button addStudentGroupButton;
-
-
+    private Button addGroupTeacherButton;
     @FXML
-    private Button removeGroupButton;
-
+    private Button addTeacherButton;
     @FXML
-    private Button removeStudentsGroupButton;
-
+    private Button exitTeacherButton;
     @FXML
-    private Button showStudentButton;
-
+    private Button removeTeacherButton;
     @FXML
-    private Button showGroupButton;
+    private Button showGroupsTeacherButton;
+    @FXML
+    private Button showTeacherButton;
 
     @FXML
     void initialize() {
-        addGroupButton.setOnAction(event -> {
+        addTeacherButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-group-view.fxml"));
+            loader.setLocation(getClass().getResource("add-teacher-view.fxml"));
 
             try {
                 loader.load();
@@ -58,9 +53,9 @@ public class GroupController {
             stage.showAndWait();
         });
 
-        removeGroupButton.setOnAction(event -> {
+        removeTeacherButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("remove-group-view.fxml"));
+            loader.setLocation(getClass().getResource("remove-teacher-view.fxml"));
 
             try {
                 loader.load();
@@ -75,50 +70,50 @@ public class GroupController {
             stage.showAndWait();
         });
 
-        showGroupButton.setOnAction(event -> {
+        addDisciplineTeacherButton.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("add-discipline-teacher-view.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.showAndWait();
+        });
+
+        addGroupTeacherButton.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("add-group-teacher-view.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.showAndWait();
+        });
+
+        showTeacherButton.setOnAction(event -> {
             TextArea textArea = HelloController.textArea;
-            String content = GroupServiceProject.getGroups();
+            String content = TeacherServiceProject.getTeachers();
             textArea.setText(content);
         });
 
-        showStudentButton.setOnAction(event -> {
+        showGroupsTeacherButton.setOnAction(event -> {
             TextArea textArea = HelloController.textArea;
-            String content = String.valueOf(GroupServiceProject.getStudents());
+            String content = String.valueOf(TeacherServiceProject.getTeachersDisciplines());
             textArea.setText(content);
-        });
-
-        addStudentGroupButton.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-student-group-view.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent parent = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.setResizable(false);
-            stage.showAndWait();
-        });
-
-        removeStudentsGroupButton.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("remove-student-group-view.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent parent = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.setResizable(false);
-            stage.showAndWait();
         });
 
     }

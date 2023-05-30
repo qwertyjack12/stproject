@@ -1,6 +1,6 @@
-package com.example.stproject;
+package com.example.stproject.studentControllers;
 
-import com.example.zp.svc.services.teacherService.TeacherServiceProject;
+import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherRemoveController {
+public class StudentRemoveController {
 
     @FXML
     private ResourceBundle resources;
@@ -24,6 +24,7 @@ public class TeacherRemoveController {
 
     @FXML
     private Button removeButton;
+
     private void clearInputData(){
         idButton.clear();
     }
@@ -32,9 +33,9 @@ public class TeacherRemoveController {
         removeButton.setOnAction(event -> {
             int id = Integer.parseInt(idButton.getText().trim());
 
-            TeacherServiceProject.removeTeacher(id);
+            StudentServiceProject.removeStudent(id);
             clearInputData();
         });
-
     }
+
 }

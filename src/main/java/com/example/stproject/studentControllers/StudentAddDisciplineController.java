@@ -1,4 +1,4 @@
-package com.example.stproject;
+package com.example.stproject.studentControllers;
 
 import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;

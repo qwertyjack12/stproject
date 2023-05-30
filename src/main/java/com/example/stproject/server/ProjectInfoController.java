@@ -1,4 +1,4 @@
-package com.example.stproject;
+package com.example.stproject.server;
 
 import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;
@@ -40,7 +40,9 @@ public class ProjectInfoController {
     @FXML
     void initialize() {
         findButton.setOnAction(event -> {
-            int id = Integer.parseInt(idStudent.getText().trim());
+            idStudent.setText(String.valueOf(ProjectInfo.getState().getStudentId()));
+
+            int id = ProjectInfo.getState().getStudentId();
             StringBuilder stringBuilder = new StringBuilder();
             String gradesContent = StudentServiceProject.getStudent(id).getStudentGrades();
             String nameContent = StudentServiceProject.getStudent(id).getName();

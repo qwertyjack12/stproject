@@ -1,6 +1,7 @@
-package com.example.stproject;
+package com.example.stproject.groupControllers;
 
-import com.example.zp.svc.services.studentService.StudentServiceProject;
+import com.example.stproject.HelloController;
+import com.example.zp.svc.services.groupService.GroupServiceProject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,33 +14,37 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentController {
+public class GroupController {
     @FXML
     private ResourceBundle resources;
+
     @FXML
     private URL location;
+
     @FXML
-    private Button addDisciplineStudentButton;
+    private Button addGroupButton;
+
     @FXML
-    private Button addStudentButton;
+    private Button addStudentGroupButton;
+
+
     @FXML
-    private Button exitStudentButton;
+    private Button removeGroupButton;
+
     @FXML
-    private Button removeDisciplineStudentButton;
-    @FXML
-    private Button removeStudentButton;
-    @FXML
-    private Button showGradesStudentButton;
-    @FXML
-    private Button showRatingStudentButton;
+    private Button removeStudentsGroupButton;
+
     @FXML
     private Button showStudentButton;
 
     @FXML
+    private Button showGroupButton;
+
+    @FXML
     void initialize() {
-        addStudentButton.setOnAction(event -> {
+        addGroupButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-student-view.fxml"));
+            loader.setLocation(getClass().getResource("add-group-view.fxml"));
 
             try {
                 loader.load();
@@ -54,9 +59,9 @@ public class StudentController {
             stage.showAndWait();
         });
 
-        removeStudentButton.setOnAction(event -> {
+        removeGroupButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("remove-student-view.fxml"));
+            loader.setLocation(getClass().getResource("remove-group-view.fxml"));
 
             try {
                 loader.load();
@@ -69,29 +74,23 @@ public class StudentController {
             stage.setScene(new Scene(parent));
             stage.setResizable(false);
             stage.showAndWait();
+        });
+
+        showGroupButton.setOnAction(event -> {
+            TextArea textArea = HelloController.textArea;
+            String content = GroupServiceProject.getGroups();
+            textArea.setText(content);
         });
 
         showStudentButton.setOnAction(event -> {
             TextArea textArea = HelloController.textArea;
-            String content = StudentServiceProject.getStudents();
+            String content = String.valueOf(GroupServiceProject.getStudents());
             textArea.setText(content);
         });
 
-        showGradesStudentButton.setOnAction(event -> {
-            TextArea textArea = HelloController.textArea;
-            StringBuilder content = StudentServiceProject.getStudentsGrades();
-            textArea.setText(String.valueOf(content));
-        });
-
-        showRatingStudentButton.setOnAction(event -> {
-            TextArea textArea = HelloController.textArea;
-            StringBuilder content = StudentServiceProject.getStudentsRating();
-            textArea.setText(String.valueOf(content));
-        });
-
-        addDisciplineStudentButton.setOnAction(event -> {
+        addStudentGroupButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-discipline-student-view.fxml"));
+            loader.setLocation(getClass().getResource("add-student-group-view.fxml"));
 
             try {
                 loader.load();
@@ -106,9 +105,9 @@ public class StudentController {
             stage.showAndWait();
         });
 
-        removeDisciplineStudentButton.setOnAction(event -> {
+        removeStudentsGroupButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("remove-discipline-student-view.fxml"));
+            loader.setLocation(getClass().getResource("remove-student-group-view.fxml"));
 
             try {
                 loader.load();

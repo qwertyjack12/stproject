@@ -1,5 +1,6 @@
-package com.example.stproject;
+package com.example.stproject.disciplineControllers;
 
+import com.example.stproject.HelloController;
 import com.example.zp.svc.services.disciplineService.DisciplineServiceProject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

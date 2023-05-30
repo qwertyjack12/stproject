@@ -1,6 +1,6 @@
-package com.example.stproject;
+package com.example.stproject.studentControllers;
 
-import com.example.zp.svc.services.disciplineService.DisciplineServiceProject;
+import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class DisciplineAddController {
+public class StudentAddController {
 
     @FXML
     private ResourceBundle resources;
@@ -17,7 +17,7 @@ public class DisciplineAddController {
     private URL location;
 
     @FXML
-    private Button addDisciplineButton;
+    private Button addStudentButton;
 
     @FXML
     private Button backWindowButton;
@@ -26,19 +26,29 @@ public class DisciplineAddController {
     private TextField idButton;
 
     @FXML
+    private TextField loginButton;
+
+    @FXML
     private TextField nameButton;
+
+    @FXML
+    private TextField passwordButton;
 
     private void clearInputData(){
         idButton.clear();
         nameButton.clear();
+        loginButton.clear();
+        passwordButton.clear();
     }
     @FXML
     void initialize() {
-        addDisciplineButton.setOnAction(event -> {
+        addStudentButton.setOnAction(event -> {
             int id = Integer.parseInt(idButton.getText().trim());
             String name = nameButton.getText().trim();
+            String login = loginButton.getText().trim();
+            String password = passwordButton.getText().trim();
 
-            DisciplineServiceProject.setDiscipline(id, name);
+            StudentServiceProject.setStudent(id, name, login, password);
             clearInputData();
         });
     }

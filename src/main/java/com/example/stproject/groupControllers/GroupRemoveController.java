@@ -1,7 +1,6 @@
-package com.example.stproject;
+package com.example.stproject.groupControllers;
 
 import com.example.zp.svc.services.groupService.GroupServiceProject;
-import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -9,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class GroupRemoveStudentController {
+public class GroupRemoveController {
 
     @FXML
     private ResourceBundle resources;
@@ -21,26 +20,20 @@ public class GroupRemoveStudentController {
     private Button backWindowButton;
 
     @FXML
-    private TextField idGroupButton;
-
-    @FXML
-    private TextField idStudentButton;
+    private TextField idButton;
 
     @FXML
     private Button removeButton;
 
     private void clearInputData(){
-        idGroupButton.clear();
-        idStudentButton.clear();
+        idButton.clear();
     }
-
     @FXML
     void initialize() {
         removeButton.setOnAction(event -> {
-            int idGroup = Integer.parseInt(idGroupButton.getText().trim());
-            int idStudent = Integer.parseInt(idStudentButton.getText().trim());
+            int id = Integer.parseInt(idButton.getText().trim());
 
-            GroupServiceProject.removeStudentInGroup(idGroup, StudentServiceProject.getStudent(idStudent));
+            GroupServiceProject.removeGroup(id);
             clearInputData();
         });
     }

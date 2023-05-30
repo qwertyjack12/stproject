@@ -1,6 +1,7 @@
-package com.example.stproject;
+package com.example.stproject.studentControllers;
 
-import com.example.zp.svc.services.teacherService.TeacherServiceProject;
+import com.example.stproject.HelloController;
+import com.example.zp.svc.services.studentService.StudentServiceProject;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,31 +14,33 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TeacherController {
+public class StudentController {
     @FXML
     private ResourceBundle resources;
     @FXML
     private URL location;
     @FXML
-    private Button addDisciplineTeacherButton;
+    private Button addDisciplineStudentButton;
     @FXML
-    private Button addGroupTeacherButton;
+    private Button addStudentButton;
     @FXML
-    private Button addTeacherButton;
+    private Button exitStudentButton;
     @FXML
-    private Button exitTeacherButton;
+    private Button removeDisciplineStudentButton;
     @FXML
-    private Button removeTeacherButton;
+    private Button removeStudentButton;
     @FXML
-    private Button showGroupsTeacherButton;
+    private Button showGradesStudentButton;
     @FXML
-    private Button showTeacherButton;
+    private Button showRatingStudentButton;
+    @FXML
+    private Button showStudentButton;
 
     @FXML
     void initialize() {
-        addTeacherButton.setOnAction(event -> {
+        addStudentButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-teacher-view.fxml"));
+            loader.setLocation(getClass().getResource("add-student-view.fxml"));
 
             try {
                 loader.load();
@@ -52,9 +55,9 @@ public class TeacherController {
             stage.showAndWait();
         });
 
-        removeTeacherButton.setOnAction(event -> {
+        removeStudentButton.setOnAction(event -> {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("remove-teacher-view.fxml"));
+            loader.setLocation(getClass().getResource("remove-student-view.fxml"));
 
             try {
                 loader.load();
@@ -69,50 +72,56 @@ public class TeacherController {
             stage.showAndWait();
         });
 
-        addDisciplineTeacherButton.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-discipline-teacher-view.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent parent = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.setResizable(false);
-            stage.showAndWait();
-        });
-
-        addGroupTeacherButton.setOnAction(event -> {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("add-group-teacher-view.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent parent = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(parent));
-            stage.setResizable(false);
-            stage.showAndWait();
-        });
-
-        showTeacherButton.setOnAction(event -> {
+        showStudentButton.setOnAction(event -> {
             TextArea textArea = HelloController.textArea;
-            String content = TeacherServiceProject.getTeachers();
+            String content = StudentServiceProject.getStudents();
             textArea.setText(content);
         });
 
-        showGroupsTeacherButton.setOnAction(event -> {
+        showGradesStudentButton.setOnAction(event -> {
             TextArea textArea = HelloController.textArea;
-            String content = String.valueOf(TeacherServiceProject.getTeachersDisciplines());
-            textArea.setText(content);
+            StringBuilder content = StudentServiceProject.getStudentsGrades();
+            textArea.setText(String.valueOf(content));
+        });
+
+        showRatingStudentButton.setOnAction(event -> {
+            TextArea textArea = HelloController.textArea;
+            StringBuilder content = StudentServiceProject.getStudentsRating();
+            textArea.setText(String.valueOf(content));
+        });
+
+        addDisciplineStudentButton.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("add-discipline-student-view.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.showAndWait();
+        });
+
+        removeDisciplineStudentButton.setOnAction(event -> {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("remove-discipline-student-view.fxml"));
+
+            try {
+                loader.load();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
+            Parent parent = loader.getRoot();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(parent));
+            stage.setResizable(false);
+            stage.showAndWait();
         });
 
     }

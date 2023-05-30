@@ -1,6 +1,6 @@
-package com.example.stproject;
+package com.example.stproject.groupControllers;
 
-import com.example.zp.svc.services.studentService.StudentServiceProject;
+import com.example.zp.svc.services.groupService.GroupServiceProject;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class StudentAddController {
+public class GroupAddController {
 
     @FXML
     private ResourceBundle resources;
@@ -17,7 +17,7 @@ public class StudentAddController {
     private URL location;
 
     @FXML
-    private Button addStudentButton;
+    private Button addGroupButton;
 
     @FXML
     private Button backWindowButton;
@@ -26,29 +26,19 @@ public class StudentAddController {
     private TextField idButton;
 
     @FXML
-    private TextField loginButton;
-
-    @FXML
     private TextField nameButton;
-
-    @FXML
-    private TextField passwordButton;
 
     private void clearInputData(){
         idButton.clear();
         nameButton.clear();
-        loginButton.clear();
-        passwordButton.clear();
     }
     @FXML
     void initialize() {
-        addStudentButton.setOnAction(event -> {
+        addGroupButton.setOnAction(event -> {
             int id = Integer.parseInt(idButton.getText().trim());
             String name = nameButton.getText().trim();
-            String login = loginButton.getText().trim();
-            String password = passwordButton.getText().trim();
 
-            StudentServiceProject.setStudent(id, name, login, password);
+            GroupServiceProject.setGroup(id, name);
             clearInputData();
         });
     }
